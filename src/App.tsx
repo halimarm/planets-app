@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Button from './components/Button';
+import Card from './components/Card';
+import { BASE_API } from './utils/Const';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Base Api : {BASE_API}</p>
+      <p>Endpoints : </p>
+      <ul>
+        <li>/planets/ -- get all the planets resources</li>
+        <li>/planets/:id/ -- get a specific planets resource</li>
+        <li>/planets/schema/ -- view the JSON schema for this resource</li>
+        <li>/planets/?search=keywords -- get all planets contains keywords in name</li>
+      </ul>
+      <Card>
+        <Button color="primary">Button</Button>
+      </Card>
     </div>
   );
 }

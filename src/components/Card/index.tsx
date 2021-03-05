@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Button from '../Button';
+// import Button from '../Button';
 
 type CardType = {
   title?: string;
@@ -42,7 +42,7 @@ const Card: React.FC<CardProps> = ({ title, body, ...props }) => {
       </CardHeader>
       <CardBody>
         {body}
-        <Button color="primary">Detail</Button>
+        {/* <Button color="primary">Detail</Button> */}
       </CardBody>
     </ComponentCard>
   )

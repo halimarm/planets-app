@@ -1,5 +1,4 @@
-import { PlanetList } from "../interfaces/Planet";
-import { PlanetInfo } from "../interfaces/PlanetInfo";
+import { PlanetList, PlanetInfo } from "./interfaces";
 
 export interface SetPlanetListData {
   type: "SET_PLANET_LIST_DATA";

@@ -1,14 +1,13 @@
 import { Dispatch } from "redux";
 import { BASE_API } from "../../utils/Const";
-import { PlanetList } from "../interfaces/Planet";
-import { PlanetInfo } from "../interfaces/PlanetInfo";
-import { AppState } from "../store";
+import { PlanetList, PlanetInfo } from "./interfaces";
+import { AppState } from "..";
 import {
   AppActions,
   SetPageNumber,
   SetPlanetListData,
   SetPlanetInfoData,
-} from "../types/PlanetTypes";
+} from "./types";
 
 export const setPlanetListData = (
   planetList: PlanetList

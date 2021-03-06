@@ -1,9 +1,13 @@
 import React from 'react';
+import InputSearch from '../../components/Form/InputSearch';
 
 const Search: React.FC = () => {
   return (
     <>
-      <p>Search</p>
+      <InputSearch
+        title="Search..."
+        focus
+      />
     </>
   );
 }

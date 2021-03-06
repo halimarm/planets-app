@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Card from '../../components/Card';
+import InputSearch from '../../components/Form/InputSearch';
 import { AppState } from '../../store';
 import { fetchPlanetList } from '../../store/planets/actions';
 
-const Home: React.FC = () => {
+type HomeProps = RouteComponentProps;
+const Home: React.FC<HomeProps> = ({ history }) => {
   const dispatch = useDispatch();
   const data = useSelector((state: AppState) => state.planetListReducer);
 
@@ -29,9 +31,13 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <InputSearch
+        title="Search..."
+        onClick={() => history.push(`/search`)}
+      />
       { renderPlanet() }
     </>
   );
 }
 
-export default Home;
+export default withRouter(Home);

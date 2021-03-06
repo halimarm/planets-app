@@ -2,11 +2,16 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineReducers } from 'redux';
-import { planetListReducer, planetInfoReducer } from './planets/reducer';
+import {
+  planetListReducer,
+  planetInfoReducer,
+  planetSearchReducer
+} from './planets/reducer';
 
 const rootReducer = combineReducers({
   planetListReducer,
-  planetInfoReducer
+  planetInfoReducer,
+  planetSearchReducer
 });
 
 const store = createStore(

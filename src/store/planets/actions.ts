@@ -7,6 +7,7 @@ import {
   SetPageNumber,
   SetPlanetListData,
   SetPlanetInfoData,
+  SetPlanetSearchData
 } from "./types";
 
 export const setPlanetListData = (
@@ -21,6 +22,13 @@ export const setPlanetInfoData = (
 ): SetPlanetInfoData => ({
   type: "SET_PLANET_INFO_DATA",
   planetInfo
+})
+
+export const setPlanetSearchData = (
+  planetSearch: PlanetList
+): SetPlanetSearchData => ({
+  type: "SET_PLANET_SEARCH_DATA",
+  planetSearch
 })
 
 export const setPageNumber = (pageNumber: number): SetPageNumber => ({
@@ -56,6 +64,22 @@ export const fetchPlanetInfo = (id: string) => (
     .then(res => res.json())
     .then((res: PlanetInfo) => {
       dispatch(setPlanetInfoData(res));
+    })
+    .catch(err => {
+      console.warn(err);
+    });
+};
+
+export const fetchPlanetSearch = (name: string) => (
+  dispatch: Dispatch<AppActions>,
+  getState: () => AppState
+) => {
+  fetch(`${BASE_API}/planets/?search=${name}`, {
+    method: "GET"
+  })
+    .then(res => res.json())
+    .then((res: PlanetList) => {
+      dispatch(setPlanetSearchData(res));
     })
     .catch(err => {
       console.warn(err);

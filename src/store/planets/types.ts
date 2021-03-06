@@ -10,6 +10,11 @@ export interface SetPlanetInfoData {
   planetInfo: PlanetInfo;
 }
 
+export interface SetPlanetSearchData {
+  type: "SET_PLANET_SEARCH_DATA";
+  planetSearch: PlanetList;
+}
+
 export interface SetPageNumber {
   type: "SET_PAGE_NUMBER";
   pageNumber: number;
@@ -18,6 +23,7 @@ export interface SetPageNumber {
 export type PlanetListActionTypes =
   | SetPlanetListData
   | SetPlanetInfoData
+  | SetPlanetSearchData
   | SetPageNumber;
 
 export type AppActions = PlanetListActionTypes

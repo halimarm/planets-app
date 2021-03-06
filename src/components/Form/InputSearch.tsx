@@ -6,7 +6,7 @@ type InputSearchType = {
   title?: string;
   focus?: boolean;
   onClick?: () => void;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 };
 type InputSearchProps = InputSearchType;
 

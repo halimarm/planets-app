@@ -60,3 +60,27 @@ export const planetInfoReducer = (
       return { ...state };
   }
 };
+
+interface PlanetSearchState {
+  data: PlanetList;
+  page: number;
+}
+
+const planetSearchState: PlanetSearchState = {
+  data: { count: 0, next: "", previous: "", results: [] },
+  page: 1,
+};
+
+export const planetSearchReducer = (
+  state = planetSearchState,
+  action: PlanetListActionTypes
+): PlanetSearchState => {
+  switch (action.type) {
+    case "SET_PLANET_SEARCH_DATA":
+      return { ...state, data: action.planetSearch };
+    case "SET_PAGE_NUMBER":
+      return { ...state, page: action.pageNumber };
+    default:
+      return { ...state };
+  }
+};

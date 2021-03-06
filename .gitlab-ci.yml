@@ -16,5 +16,5 @@ deploy:
     - npm cache clean --force
     - npm i
     - npm run build
-    - npm i netlify-cli@latest -g
+    - npm i --unsafe-perm=true netlify-cli@latest -g
     - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod

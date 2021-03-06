@@ -2,6 +2,7 @@ image: node:12.16.1
 
 stages:
   - deploy
+  - tag
 
 deploy:
   stage: deploy
@@ -18,3 +19,19 @@ deploy:
     - npm run build
     - npm i --unsafe-perm=true netlify-cli@latest -g
     - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+
+semantic_release:
+  stage: tag
+  variables:
+    GITLAB_TOKEN: $GITLAB_TOKEN
+  before_script:
+    - npm install -g semantic-release @semantic-release/gitlab-config
+    - touch CHANGELOG.md
+    - npm install @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git --save-dev
+  script:
+    - semantic-release -e @semantic-release/gitlab-config
+  artifacts:
+    paths:
+    - CHANGELOG.md
+  only:
+    - master

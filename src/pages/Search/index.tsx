@@ -19,6 +19,7 @@ const Search: React.FC<SearchProps> = () => {
     if (keyword) {
       dispatch(fetchPlanetSearch(keyword));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyword])
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {

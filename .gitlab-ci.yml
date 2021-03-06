@@ -1,24 +1,8 @@
 image: node:12.16.1
 
 stages:
-  - deploy
   - tag
-
-deploy:
-  stage: deploy
-  environment:
-    name: production
-    url: https://planet-apps.netlify.app
-  only:
-    - master
-  script:
-    - rm -rf node_modules
-    - rm -rf package-lock.json
-    - npm cache clean --force
-    - npm i
-    - npm run build
-    - npm i --unsafe-perm=true netlify-cli@latest -g
-    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+  - deploy
 
 semantic_release:
   stage: tag
@@ -35,3 +19,19 @@ semantic_release:
     - CHANGELOG.md
   only:
     - master
+
+deploy:
+  stage: deploy
+  environment:
+    name: production
+    url: https://planet-apps.netlify.app
+  only:
+    - master
+  script:
+    - rm -rf node_modules
+    - rm -rf package-lock.json
+    - npm cache clean --force
+    - npm i
+    - npm run build
+    - npm i --unsafe-perm=true netlify-cli@latest -g
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod

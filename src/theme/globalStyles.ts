@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     background-size: contain;
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    line-height: 1.5;
   }
   .App {
     width: 487px;

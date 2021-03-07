@@ -33,7 +33,11 @@ const Search: React.FC<SearchProps> = () => {
       let id = index + 1
       return (
         <Link key={id} to={`/planets/${id}`}>
-          <Card title={data.name} />
+          <Card title={data.name}>
+            <span>Population : {data.population}</span> <br/>
+            <span>Diameter : {data.diameter}</span> <br/>
+            <span>Climate : {data.climate}</span> <br/>
+          </Card>
         </Link>
       )
     })

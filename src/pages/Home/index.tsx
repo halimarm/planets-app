@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Card from '../../components/Card';
 import InputSearch from '../../components/Form/InputSearch';
 import { AppState } from '../../store';
 import { fetchPlanetList } from '../../store/planets/actions';
+
+const Heading = styled.h1`
+  text-align: center;
+  padding: 2px;
+  font-weight: 600;
+  font-size: 22px;
+`;
 
 type HomeProps = RouteComponentProps;
 const Home: React.FC<HomeProps> = ({ history }) => {
@@ -50,6 +58,7 @@ const Home: React.FC<HomeProps> = ({ history }) => {
 
   return (
     <>
+      <Heading>Planets</Heading>
       <InputSearch
         title="Search..."
         onClick={() => history.push(`/search`)}

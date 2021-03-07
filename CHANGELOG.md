@@ -1,3 +1,18 @@
+# [1.1.0](https://gitlab.com/halimarm/planet-apps/compare/v1.0.0...v1.1.0) (2021-03-07)
+
+
+### Bug Fixes
+
+* add heading on home page ([d581487](https://gitlab.com/halimarm/planet-apps/commit/d581487e95745601429179f05759fcb31ba322bf))
+* card content ([453f02e](https://gitlab.com/halimarm/planet-apps/commit/453f02ef8f075b06df253c3a44235fed5536ad01))
+* reverse gitlab-ci stages ([b916e39](https://gitlab.com/halimarm/planet-apps/commit/b916e392c4f578a8a20d17f2b3f4110a86459fa6))
+
+
+### Features
+
+* add detail pages ([8e82831](https://gitlab.com/halimarm/planet-apps/commit/8e82831262ee6ef8ce1e9814f5a49e8a45cd4e9f))
+* infinite scroll planet ([1c44ffe](https://gitlab.com/halimarm/planet-apps/commit/1c44ffe629213fc626769079a2d88b449ff04f73))
+
 # 1.0.0 (2021-03-06)
 
 

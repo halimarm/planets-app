@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Card from '../../components/Card';
@@ -10,10 +10,25 @@ type HomeProps = RouteComponentProps;
 const Home: React.FC<HomeProps> = ({ history }) => {
   const dispatch = useDispatch();
   const data = useSelector((state: AppState) => state.planetListReducer);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(fetchPlanetList());
-  }, [dispatch]);
+    if (page) {
+      dispatch(fetchPlanetList(page));
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, page]);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    )
+    return;
+    setPage(page + 1)
+  };
 
   const renderPlanet = () => {
     const result = data.data.results.map((data, index) => {

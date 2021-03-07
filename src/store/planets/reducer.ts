@@ -1,6 +1,6 @@
 import { PlanetListActionTypes } from './types';
 import { PlanetList, PlanetInfo } from './interfaces';
-
+import update from 'immutability-helper';
 
 interface PlanetListState {
   data: PlanetList;
@@ -18,7 +18,11 @@ export const planetListReducer = (
 ): PlanetListState => {
   switch (action.type) {
     case "SET_PLANET_LIST_DATA":
-      return { ...state, data: action.planetList };
+      console.log(state.data)
+      return {
+        ...state,
+        data: update(state.data, { results: { $push: action.planetList.results } })
+      }
     case "SET_PAGE_NUMBER":
       return { ...state, page: action.pageNumber };
     default:

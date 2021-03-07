@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 type CardType = {
   title?: string;
-  body?: string;
+  children?: any;
 };
 type CardProps = CardType;
 
@@ -39,7 +39,7 @@ const ComponentCard = styled.div`
 `;
 
 export const CardHeader = styled.header`
-  padding: 24px;
+  padding: 8px 16px;
 `;
 
 export const CardHeading = styled.h1`
@@ -52,21 +52,24 @@ export const CardHeading = styled.h1`
 `;
 
 export const CardBody = styled.div`
-  padding: 24px;
+  padding: 8px 16px;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+  font-size: 14px;
 `;
 
 
-const Card: React.FC<CardProps> = ({ title, body, ...props }) => {
+const Card: React.FC<CardProps> = ({ title, children, ...props }) => {
   return (
     <ComponentCard
       {...props}>
       <CardHeader>
         <CardHeading>{title}</CardHeading>
       </CardHeader>
-      {/* <CardBody> */}
-        {/* {body} */}
-        {/* <Button color="primary">Detail</Button> */}
-      {/* </CardBody> */}
+      <CardBody>
+        {children}
+      </CardBody>
     </ComponentCard>
   )
 }
